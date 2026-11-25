@@ -41,17 +41,17 @@ h2{font-family:var(--d);font-size:clamp(28px,4vw,40px);letter-spacing:-.02em;lin
 .col h3{font-family:var(--d);margin:0 0 14px;font-size:22px;line-height:1.25;letter-spacing:-.01em}
 .col .d{color:var(--muted);font-size:16px;line-height:1.75;margin:0}
 
-/* Platforms: rounded cards (centered) */
-.platforms{list-style:none;margin:0 auto;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:40px 24px;max-width:640px;justify-items:center}
+/* Platforms: compact rounded cards, 6 in one row on desktop */
+.platforms{list-style:none;margin:0 auto;padding:0;display:grid;grid-template-columns:repeat(6,1fr);gap:24px 20px;max-width:800px;justify-items:center}
 .platforms li{display:flex;flex-direction:column;align-items:center;text-align:center;gap:2px;width:100%}
-.tile{width:100%;max-width:152px;aspect-ratio:1;display:flex;align-items:center;justify-content:center;background:var(--tile);border:1px solid var(--tile-border);border-radius:28px;box-shadow:var(--tile-shadow);margin:0 auto 14px}
-.tile svg{width:64px;height:64px;fill:var(--ink)}
+.tile{width:100%;max-width:100px;aspect-ratio:1;display:flex;align-items:center;justify-content:center;background:var(--tile);border:1px solid var(--tile-border);border-radius:22px;box-shadow:var(--tile-shadow);margin:0 auto 12px}
+.tile svg{width:40px;height:40px;fill:var(--ink)}
 .tile svg .cut{fill:none;stroke:var(--tile);stroke-width:1.6;stroke-linecap:round}
 .tile svg .ring{fill:none;stroke:var(--ink);stroke-width:1.6}
 .tile svg text{fill:var(--ink);stroke:none}
 
-.p-name{font-family:var(--d);font-size:18px;font-weight:600}
-.p-status{font-size:14px;color:var(--muted)}
+.p-name{font-family:var(--d);font-size:16px;font-weight:600}
+.p-status{font-size:13px;color:var(--muted);line-height:1.35}
 
 footer{border-top:1px solid var(--line);padding:32px 0;color:var(--muted);font-size:14px;background:var(--bg)}
 footer .wrap{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center}
@@ -68,18 +68,18 @@ footer .logo{font-size:16px}
 .doc p,.doc li{color:var(--muted)}
 .doc a{text-decoration:none}
 
-/* Tablet: 3 cards get tight, keep them readable */
+/* Tablet */
 @media (max-width:980px){
   .cols{gap:20px}
   .col{padding:30px 24px 34px}
 }
 
-/* Mobile: stacked */
+/* Tablet/small: platforms 3 x 2 */
 @media (max-width:760px){
   .cols{grid-template-columns:1fr;gap:20px}
   .col{padding:28px 24px 32px}
   .num{margin-bottom:20px}
   .hero{padding:56px 24px 48px}
-  .platforms{gap:28px 16px}
-  .tile svg{width:48px;height:48px}
+  .platforms{grid-template-columns:repeat(3,1fr);gap:28px 14px;max-width:420px}
+  .tile{max-width:92px}
 }
