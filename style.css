@@ -34,10 +34,12 @@ section{padding:56px 0}
 h2{font-family:var(--d);font-size:clamp(28px,4vw,40px);letter-spacing:-.02em;line-height:1.15;margin:0 0 12px}
 .sub{color:var(--muted);max-width:620px;margin:0 0 36px}
 
-.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:48px}
-.col h3{font-family:var(--d);margin:0 0 8px;font-size:20px}
-.num{font-family:var(--d);font-size:44px;font-weight:300;line-height:1;margin:0 0 20px;color:var(--accent);opacity:.45}
-.col .d{color:var(--muted);font-size:15px;margin:0}
+/* Three feature blocks: cards */
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;align-items:stretch}
+.col{background:var(--tile);border:1px solid var(--tile-border);border-radius:22px;box-shadow:var(--tile-shadow);padding:36px 30px 40px}
+.num{font-family:var(--d);font-size:40px;font-weight:300;line-height:1;margin:0 0 28px;color:var(--accent);opacity:.6}
+.col h3{font-family:var(--d);margin:0 0 14px;font-size:22px;line-height:1.25;letter-spacing:-.01em}
+.col .d{color:var(--muted);font-size:16px;line-height:1.75;margin:0}
 
 /* Platforms: rounded cards (centered) */
 .platforms{list-style:none;margin:0 auto;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:40px 24px;max-width:640px;justify-items:center}
@@ -47,12 +49,6 @@ h2{font-family:var(--d);font-size:clamp(28px,4vw,40px);letter-spacing:-.02em;lin
 .tile svg .cut{fill:none;stroke:var(--tile);stroke-width:1.6;stroke-linecap:round}
 .tile svg .ring{fill:none;stroke:var(--ink);stroke-width:1.6}
 .tile svg text{fill:var(--ink);stroke:none}
-
-/* Linux (Tux): single colour like other icons */
-.tile img.tux{height:68px;width:auto;filter:grayscale(1) contrast(1.6)}
-@media (prefers-color-scheme:dark){
-  .tile img.tux{filter:grayscale(1) contrast(1.6) invert(1)}
-}
 
 .p-name{font-family:var(--d);font-size:18px;font-weight:600}
 .p-status{font-size:14px;color:var(--muted)}
@@ -72,10 +68,18 @@ footer .logo{font-size:16px}
 .doc p,.doc li{color:var(--muted)}
 .doc a{text-decoration:none}
 
+/* Tablet: 3 cards get tight, keep them readable */
+@media (max-width:980px){
+  .cols{gap:20px}
+  .col{padding:30px 24px 34px}
+}
+
+/* Mobile: stacked */
 @media (max-width:760px){
-  .cols{grid-template-columns:1fr;gap:32px}
+  .cols{grid-template-columns:1fr;gap:20px}
+  .col{padding:28px 24px 32px}
+  .num{margin-bottom:20px}
   .hero{padding:56px 24px 48px}
   .platforms{gap:28px 16px}
   .tile svg{width:48px;height:48px}
-  .tile img.tux{height:52px}
 }
